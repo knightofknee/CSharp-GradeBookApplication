@@ -32,7 +32,7 @@ namespace GradeBook.GradeBooks
             //Predicate<double> finder = (double d) => { return d == averageGrade; };
             List<double> newList = GradeList.FindAll(delegate(double score) { return score > averageGrade; });
             int studentsAhead = newList.Count;
-            double comparisonAverage = (double)(Students.Count + 1 - studentsAhead) / (Students.Count + 1);
+            double comparisonAverage = (double)(Students.Count - studentsAhead) / Students.Count;
 
             //int index = GradeList.FindIndex(finder);
             //double comparisonAverage = (double)index / GradeList.Count;
