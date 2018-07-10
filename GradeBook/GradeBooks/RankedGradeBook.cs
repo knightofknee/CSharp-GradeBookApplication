@@ -31,7 +31,7 @@ namespace GradeBook.GradeBooks
             GradeList.Sort();
             Predicate<double> finder = (double d) => { return d == averageGrade; }; 
             int index = GradeList.FindIndex(finder);
-            double comparisonAverage = index / GradeList.Count;
+            double comparisonAverage = (double)index / GradeList.Count;
 
             //double classAverage = TotalPoints / counter;
             if (comparisonAverage > 0.8) return 'A';
