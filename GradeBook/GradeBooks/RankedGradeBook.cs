@@ -27,13 +27,17 @@ namespace GradeBook.GradeBooks
                 //    counter++;
                 //}
             }
-            GradeList.Add(averageGrade);
+            //GradeList.Add(averageGrade);
             GradeList.Sort();
-            Predicate<double> finder = (double d) => { return d == averageGrade; }; 
-            int index = GradeList.FindIndex(finder);
-            double comparisonAverage = (double)index / GradeList.Count;
+            //Predicate<double> finder = (double d) => { return d == averageGrade; };
+            GradeList.FindAll(e => e > averageGrade);
+            int studentsAhead = GradeList.Count;
+            double comparisonAverage = (double)(Students.Count + 1 - studentsAhead) / (Students.Count + 1);
 
-            //double classAverage = TotalPoints / counter;
+            //int index = GradeList.FindIndex(finder);
+            //double comparisonAverage = (double)index / GradeList.Count;
+
+            ////double classAverage = TotalPoints / counter;
             if (comparisonAverage > 0.8) return 'A';
             if (comparisonAverage > 0.6) return 'B';
             if (comparisonAverage > 0.4) return 'C';
